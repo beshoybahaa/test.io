@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>acount information</title>
+    <link href="master2.css" rel="style sheet">
+    <style>
+        body {
+            font-size: 25px;
+            margin: 0 auto;
+        }
+
+        p {
+            margin: auto;
+            font-size: 60px;
+        }
+
+        form {
+
+            display: block;
+            width: 300px;
+            margin-left: 80px;
+            padding: 30px;
+        }
+
+        form span {
+            margin: auto;
+            font-family: "Roboto", sans-serif;
+        }
+    </style>
+</head>
+<p> ACCOUNT INFO </p>
+<form>
+    <span id="result1"></span>
+    <br>
+    <span id="result2"></span>
+    <br>
+    <span id="result3"></span>
+    <br>
+    <span id="result4"></span>
+</form>
+
+</body>
+<script>
+    function getCookie(cname) {
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(";");
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == " ") {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+    /*function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+            let expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+     }*/
+    
+    let user = getCookie("firstname");
+    console.log(user);
+    document.getElementById("result1").innerHTML = localStorage.getItem("textvalue1");
+    document.getElementById("result2").innerHTML = localStorage.getItem("textvalue2");
+    document.getElementById("result3").innerHTML = localStorage.getItem("textvalue3");
+    document.getElementById("result4").innerHTML = localStorage.getItem("textvalue4");     
+</script>
+</html>
